@@ -1,0 +1,20 @@
+<ng-container *ngIf="photo">
+    <h2>{{ photo.title }}</h2>
+    <div class="example-button-container">
+        <button (click)="triggerPhotoSave()" mat-fab color="primary" aria-label="Example icon button with a bookmark icon">
+          <mat-icon>bookmark</mat-icon>
+        </button>
+      </div>
+    <p>
+        <img src="{{ photo.url_m }}" alt="{{ photo.title }}"/>
+    </p>
+    <p>{{ photo.ownername }}</p>
+    <p>{{ photo.datetaken }}</p>
+    <p>{{ photo.tags }}</p>
+    <p>
+        <a href="https://www.flickr.com/photos/{{ photo.owner }}/{{ photo.id }}"
+            target="_top">
+            https://www.flickr.com/photos/{{ photo.owner }}/{{ photo.id }}
+        </a>
+    </p>
+</ng-container>

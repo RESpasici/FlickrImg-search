@@ -1,1 +1,16 @@
-<p>search works!</p>
+<div class="photo-list-and-full-photo">
+    <h1>Search</h1>
+
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Keyword</mat-label>
+            <input (input)="onSearchChange($event)" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </p>
+
+    <app-photo-list [photos]="(photos$ | async) || []" (focusPhoto)="handleFocusPhoto($event)" class="photo-list">
+    </app-photo-list>
+
+    <app-photo-display *ngIf="currentPhoto$ | async as currentPhoto" [photo]="currentPhoto" class="full-photo"
+        (savePhoto)="handleSavePhoto($event)"></app-photo-display>
+</div>
