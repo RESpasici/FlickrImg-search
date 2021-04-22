@@ -1,29 +1,27 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { addList, editList } from '../actions/favorite.actions';
+import { FavoriteList } from '../models/favorite-list';
 
-import { FavoriteListState } from "./favorite-list.state";
-
-export const initialState: FavoriteListState = {
-    lists: [],
-};
+export const initialState: FavoriteList[] =
+    // [{ id: 1, name: 'Default', description: 'this is a default list', photos: [] }];
+    [];
 
 const reducer = createReducer(
     initialState,
-    on(addList, (state, { list }) => ({
-        ...state,
-        lists: [...state.lists, list]
-    })),
+    on(addList, (state, { list }) => (
+        [...state, list]
+    )),
     on(editList, (state, { list }) => {
-        const index = state.lists.findIndex(favList => favList.id === list.id);
-        const newList = [...state.lists];
+        const index = state.findIndex(favList => favList.id === list.id);
+        const newList = [...state];
         newList[index] = list;
-        return { ...state, list: newList }
+        return newList;
     })
 );
 
 export function favoriteReducer(
-    state: FavoriteListState | undefined,
+    state: FavoriteList[] | undefined,
     action: Action
-): FavoriteListState {
+): FavoriteList[] {
     return reducer(state, action);
 }

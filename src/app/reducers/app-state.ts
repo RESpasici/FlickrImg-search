@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { FavoriteListState } from './favorite-list.state';
+import { FavoriteList } from '../models/favorite-list';
 import { favoriteReducer } from './favorite.reducer';
 
 import { PhotosState } from './photos-state';
@@ -7,7 +7,7 @@ import { photosReducer } from './photos.reducer';
 
 export interface AppState {
   photos: PhotosState;
-  favorite: FavoriteListState; 
+  favorite: FavoriteList[]; 
 }
 
 export const reducers: ActionReducerMap<AppState> = {

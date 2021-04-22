@@ -21,6 +21,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+
+import { FavoriteListDialogComponent } from './components/favorite-list-dialog/favorite-list-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,8 +34,10 @@ import { MatCardModule } from '@angular/material/card';
     SearchComponent,
     PhotoDisplayComponent,
     PhotoListComponent,
+    FavoriteListDialogComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -47,7 +54,9 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [FlickrService],
   bootstrap: [AppComponent]

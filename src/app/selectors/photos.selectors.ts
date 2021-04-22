@@ -7,16 +7,10 @@ const featureKey = 'photos';
 export const selectPhotos = createFeatureSelector<AppState, PhotosState>(featureKey);
 
 export const searchTermSelector = createSelector(
-  selectPhotos,
-  (photosStateSlice) => photosStateSlice.searchTerm,
-);
+  selectPhotos, (photosState) => photosState.searchTerm);
 
 export const photosSelector = createSelector(
-  selectPhotos,
-  (photosStateSlice) => photosStateSlice.photos,
-);
+  selectPhotos, (photosState) => photosState.photos);
 
 export const currentPhotoSelector = createSelector(
-  selectPhotos,
-  (photosStateSlice) => photosStateSlice.currentPhoto,
-);
+  selectPhotos, (photosState) => photosState.currentPhoto);
