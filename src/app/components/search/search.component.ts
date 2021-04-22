@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppState } from 'src/app/reducers';
+import { AppState } from 'src/app/reducers/app-state';
 import { select, Store } from '@ngrx/store';
 import { Photo } from 'src/app/models/photo';
-import { focusPhoto, search } from 'src/app/actions/photos.actions';
+import { focusPhoto, search, searchResultsLoaded } from 'src/app/actions/photos.actions';
 import { currentPhotoSelector, photosSelector, searchTermSelector } from 'src/app/selectors/photos.selectors';
 
 @Component({
@@ -28,7 +28,12 @@ export class SearchComponent implements OnInit {
 
   onSearchChange(searchValue: Event): void {
     const target = searchValue.target as HTMLInputElement;
-    if (target && target.value.length >= 3) this.handleSearch(target.value);
+    if (target && target.value.length >= 3) {
+      this.handleSearch(target.value)
+    }
+    else {
+      this.clearPhotoList();
+    };
   }
 
   handleSearch(searchTerm: string): void {
@@ -37,6 +42,11 @@ export class SearchComponent implements OnInit {
 
   handleFocusPhoto(photo: Photo): void {
     this.store$.dispatch(focusPhoto({ photo }));
+  }
+
+  clearPhotoList(): void {
+    const photos: Photo[] = []
+    this.store$.dispatch(searchResultsLoaded({ photos }));
   }
 
   handleSavePhoto(photo: Photo): void {

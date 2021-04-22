@@ -1,9 +1,9 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
 import { focusPhoto, search, searchResultsLoaded } from '../actions/photos.actions';
-import { PhotosStateSlice } from './photos-state-slice';
+import { PhotosState } from './photos-state';
 
-export const initialState: PhotosStateSlice = {
+export const initialState: PhotosState = {
   searchTerm: '',
   photos: [],
   currentPhoto: null,
@@ -27,8 +27,8 @@ const reducer = createReducer(
 );
 
 export function photosReducer(
-  state: PhotosStateSlice | undefined,
+  state: PhotosState | undefined,
   action: Action,
-): PhotosStateSlice {
+): PhotosState {
   return reducer(state, action);
 }

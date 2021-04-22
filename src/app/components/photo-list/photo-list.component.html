@@ -1,7 +1,7 @@
 <div class="photos">
     <div class="photo" *ngFor="let photo of photos">
         <a *ngIf="photo" href="https://www.flickr.com/photos/{{ photo.owner }}/{{ photo.id }}"
-            (click)="photoClick($event, photo)" class="link" data-testid="photo-item-link">
+            (click)="photoClick($event, photo)" class="link">
             <img src="{{ photo.url_q }}" alt="{{ photo.title }}" class="image"/>
         </a>
     </div>

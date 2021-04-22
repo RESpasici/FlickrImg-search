@@ -10,7 +10,7 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { SearchComponent } from './components/search/search.component';
 import { PhotoDisplayComponent } from './components/photo-display/photo-display.component';
 import { PhotoListComponent } from './components/photo-list/photo-list.component';
-import { reducers } from './reducers';
+import { reducers } from './reducers/app-state';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PhotosEffects } from './effects/photos.effects';
@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [FlickrService],
   bootstrap: [AppComponent]

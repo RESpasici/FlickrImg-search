@@ -1,12 +1,12 @@
 :host, mat-drawer-container
     height: 100%
     display: block
-    background-color: #7baef0
-    color: #fff
+//     background-color: #7baef0
+//     color: #fff
 
-mat-drawer
-    background-color: #1C4A88
-    color: #fff
+// mat-drawer
+//     background-color: #1C4A88
+//     color: #fff
 
 mat-drawer section 
     position: relative
@@ -20,8 +20,10 @@ mat-drawer section
 .sidenav-content
     display: flex
     height: 100%
-    align-items: center
-    justify-content: center
+    align-items: left
+    justify-content: left
+    margin-left: 10%
+    margin-top: 7%
 
 .sidenav
     padding: 20px
@@ -33,7 +35,7 @@ mat-drawer section
     margin: 10px
     margin-left: 50px
     margin-right: 50px
-    color: #fff
+    color: black
 
     &.focus
         background-color: #006bc0
@@ -69,7 +71,7 @@ mat-drawer section
     &.is-active .hamburger-inner::before,
 
     &.is-active .hamburger-inner::after
-        background-color: #fff
+        background-color: black
 
     &-box
         width: 40px
@@ -89,7 +91,7 @@ mat-drawer section
     &-inner::after
         width: 40px
         height: 4px
-        background-color: #fff
+        background-color: black
         border-radius: 4px
         position: absolute
         transition-property: transform

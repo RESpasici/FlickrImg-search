@@ -8,6 +8,4 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'FlickrImg-search';
-
-
 }
