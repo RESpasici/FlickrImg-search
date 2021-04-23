@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -23,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { FavoriteListDialogComponent } from './components/favorite-list-dialog/favorite-list-dialog.component';
 import { FormsModule } from '@angular/forms';
@@ -56,7 +56,8 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule
   ],
   providers: [FlickrService],
   bootstrap: [AppComponent]

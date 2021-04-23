@@ -1,12 +1,12 @@
-<div class="photo-list-and-full-photo">
-    <h1>Search</h1>
+<h1>Search</h1>
+<p>
+    <mat-form-field appearance="fill">
+        <mat-label>Keyword</mat-label>
+        <input (input)="onSearchChange($event)" matInput>
+    </mat-form-field>
+</p>
 
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Keyword</mat-label>
-            <input (input)="onSearchChange($event)" matInput>
-        </mat-form-field>
-    </p>
+<div class="photo-list-and-full-photo">
 
     <app-photo-list [photos]="(photos$ | async) || []" (focusPhoto)="handleFocusPhoto($event)" class="photo-list">
     </app-photo-list>
