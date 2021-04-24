@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AppState } from 'src/app/reducers/app-state';
-import { Store } from '@ngrx/store';
-import { Photo } from 'src/app/models/photo';
-import { focusPhoto, search, searchResultsLoaded } from 'src/app/actions/photos.actions';
-import { currentPhotoSelector, photosSelector, searchTermSelector } from 'src/app/selectors/photos.selectors';
-import { FavoriteList } from 'src/app/models/favorite-list';
-import { listsSelector } from 'src/app/selectors/favorite.selectors';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FavoriteListDialogComponent } from '../favorite-list-dialog/favorite-list-dialog.component';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { addList, editList } from 'src/app/actions/favorite.actions';
+import { focusPhoto, search, searchResultsLoaded } from 'src/app/actions/photos.actions';
+import { FavoriteList } from 'src/app/models/favorite-list';
+import { Photo } from 'src/app/models/photo';
+import { AppState } from 'src/app/reducers/app-state';
+import { listsSelector } from 'src/app/selectors/favorite.selectors';
+import { currentPhotoSelector, photosSelector, searchTermSelector } from 'src/app/selectors/photos.selectors';
+import { FavoriteListDialogComponent } from '../favorite-list-dialog/favorite-list-dialog.component';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.sass']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
   public searchTerm$: Observable<string>;
   public photos$: Observable<Photo[]>;
@@ -29,9 +29,6 @@ export class SearchComponent implements OnInit {
     this.photos$ = this.store$.select(photosSelector);
     this.currentPhoto$ = this.store$.select(currentPhotoSelector);
     this.favoriteLists$ = this.store$.select(listsSelector)
-  }
-
-  ngOnInit(): void {
   }
 
   onSearchChange(searchValue: Event): void {
@@ -78,7 +75,7 @@ export class SearchComponent implements OnInit {
       this.store$.dispatch(editList({ list }));
     } else {
       const { name, description } = result;
-      const list: FavoriteList = { id: 1, name, description, photos: [photo] }
+      const list: FavoriteList = { name, description, photos: [photo] }
       this.store$.dispatch(addList({ list }));
     }
   }

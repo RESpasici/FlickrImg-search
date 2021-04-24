@@ -1,5 +1,4 @@
-import { createReducer, on, Action } from '@ngrx/store';
-
+import { Action, createReducer, on } from '@ngrx/store';
 import { focusPhoto, search, searchResultsLoaded } from '../actions/photos.actions';
 import { PhotosState } from './photos-state';
 

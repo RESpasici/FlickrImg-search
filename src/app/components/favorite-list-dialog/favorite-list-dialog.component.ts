@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FavoriteList } from 'src/app/models/favorite-list';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { FavoriteList } from 'src/app/models/favorite-list';
+import { Photo } from 'src/app/models/photo';
 import { AppState } from 'src/app/reducers/app-state';
 import { listsSelector } from 'src/app/selectors/favorite.selectors';
-import { Observable } from 'rxjs';
-import { Photo } from 'src/app/models/photo';
 
 @Component({
   selector: 'app-favorite-list-dialog',
@@ -13,17 +13,16 @@ import { Photo } from 'src/app/models/photo';
   styleUrls: ['./favorite-list-dialog.component.sass']
 })
 export class FavoriteListDialogComponent {
-  selectedValue: number | undefined;
-  newValueName: string | undefined;
-  newValueDescription: string | undefined;
-  favoriteLists$: Observable<FavoriteList[]>;
-  favoriteList: FavoriteList[] | undefined;
+  public selectedValue: number | undefined;
+  public newValueName: string | undefined;
+  public newValueDescription: string | undefined;
+  public favoriteLists$: Observable<FavoriteList[]>;
+  public favoriteList: FavoriteList[] | undefined;
 
   constructor(
     private store$: Store<AppState>,
-    public dialogRef: MatDialogRef<FavoriteListDialogComponent>,
+    private dialogRef: MatDialogRef<FavoriteListDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Photo) {
-    console.log(data);
     this.favoriteLists$ = this.store$.select(listsSelector);
     this.favoriteLists$.subscribe(items => this.favoriteList = items);
   }
@@ -37,7 +36,7 @@ export class FavoriteListDialogComponent {
   }
 
   getList(id: number) {
-    return this.favoriteList?.find(list => list.id === id); 
+    return this.favoriteList?.find(list => list.id === id);
   }
 
   preventClose(): boolean {

@@ -25,9 +25,9 @@ export class FlickrService {
           nojsoncallback: '1',
           tag_mode: 'all',
           media: 'photos',
-          per_page: '15',
+          per_page: '30',
           extras: 'tags,date_taken,owner_name,url_q,url_m',
-          api_key: 'c3050d39a5bb308d9921bef0e15c437d',
+          api_key: 'c205e231b0544557dc6e96de5dfd4b47',
         },
       })
       .pipe(map((response) => response.photos.photo));

@@ -23,5 +23,6 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [disabled]="preventClose()" [mat-dialog-close]="(selectedValue !== undefined) ? getList(selectedValue): newListData()" cdkFocusInitial>Ok</button>
+    <button mat-button [disabled]="preventClose()"
+        [mat-dialog-close]="(selectedValue !== undefined) ? getList(selectedValue): newListData()">Ok</button>
 </div>

@@ -1,7 +1,7 @@
 import { Photo } from "./photo";
 
 export interface FavoriteList {
-    id: number;
+    id?: number;
     name: string;
     description: string;
     photos: Photo[];

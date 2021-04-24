@@ -1,6 +1,9 @@
-<button mat-fab color="primary">
-    <mat-icon>add</mat-icon>
-</button>
+<div class="favorite-header">
+    <h1 class="title">Favorite lists</h1>
+    <button class="add" mat-fab color="primary" (click)="handleListChange(undefined)">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
 <div *ngIf="(favoriteLists$ | async)?.length; else emptyList" class="list-container">
     <div *ngFor="let list of favoriteLists$ | async">
         <mat-divider></mat-divider>
@@ -10,7 +13,7 @@
                 <h2>{{list.name}}</h2>
                 <span>{{list.description}}</span>
             </div>
-            <button mat-fab color="primary" class="edit">
+            <button mat-fab color="primary" class="edit" (click)="handleListChange(list)">
                 <mat-icon>edit</mat-icon>
             </button>
         </div>
