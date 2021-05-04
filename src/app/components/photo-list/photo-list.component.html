@@ -2,7 +2,10 @@
     <div class="photo" *ngFor="let photo of photos">
         <a *ngIf="photo" href="https://www.flickr.com/photos/{{ photo.owner }}/{{ photo.id }}"
             (click)="photoClick($event, photo)" class="link">
-            <img src="{{ photo.url_q }}" alt="{{ photo.title }}" class="image"/>
+            <img src="{{ photo.url_q }}" alt="{{ photo.title }}" class="image" />
         </a>
+        <button mat-fab color="primary" class="delete" *ngIf="favoritePage" (click)="photoDelte(photo)">
+            <mat-icon>delete</mat-icon>
+        </button>
     </div>
 </div>

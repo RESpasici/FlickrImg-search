@@ -9,7 +9,7 @@ Small Angular project with `state management`, meant to:
 
 - clone repo
 - `npm install` command via terminal
-- `ng serve` for a dev server
+- `npm run start` to serve the app in a dev server locally
 - navigate to `http://localhost:4200/` (or whatever port the CLI may point to if 4200 is taken)
 - the app will automatically reload if you change any of the source files
 

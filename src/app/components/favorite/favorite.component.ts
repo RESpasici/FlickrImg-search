@@ -50,4 +50,10 @@ export class FavoriteComponent {
     this.store$.dispatch(addList({ list }));
   }
 
+  deleteFromList(photosArray: Photo[], oldList: FavoriteList): void {
+    const list = { ...oldList };
+    list.photos = photosArray;
+    this.store$.dispatch(editList({ list }));
+  }
+
 }

@@ -17,7 +17,7 @@
                 <mat-icon>edit</mat-icon>
             </button>
         </div>
-        <app-photo-list [photos]="list.photos || []" (focusPhoto)="handleFocusPhoto($event)" class="photo-list">
+        <app-photo-list [favoritePage]="true" [photos]="list.photos || []" (focusPhoto)="handleFocusPhoto($event)" (markRemove)="deleteFromList($event, list)" class="photo-list">
         </app-photo-list>
 
     </div>
