@@ -20,3 +20,5 @@ Small Angular project with `state management`, meant to:
 - [Angular Material](https://material.angular.io/)
 - [NgRx](https://ngrx.io/)
 - [Sass](https://sass-lang.com/)
+
+
